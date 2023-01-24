@@ -1,11 +1,11 @@
-Requisitos
-Node.js =  v16.13.2.
-Yarn =  v1.22.19
-Expo Go = v2.26.6
+**Requisitos:**<br>
+Node.js =  v16.13.2.<br>
+Yarn =  v1.22.19<br>
+Expo Go = v2.26.6<br>
 
-No Computador:
-Instalar Yarn via terminal com o comando: 
-npm install --global yarn
+**No Computador:**<br>
+Instalar Yarn via terminal com o comando: <br>
+npm install --global yarn<br>
 
 Instalar dependencias via terminal com o comando:
 yarn install
