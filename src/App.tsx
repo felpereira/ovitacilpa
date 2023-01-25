@@ -15,9 +15,29 @@ import Configuracoes from './screens/Configuracores/Configuracoes'
 import { Telas } from './modules/Types'
 import TelasServices from './services/TelasService'
 
+import { BottomTabScreenProps } from '@react-navigation/bottom-tabs';
+import { CompositeScreenProps, NavigatorScreenParams } from '@react-navigation/native';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+
 interface State {
   listaComponentesTelas: Array<Telas>
 }
+
+export type RootStackParamList = {
+  Root: NavigatorScreenParams<RootTabParamList> | undefined;
+  Modal: undefined;
+  NotFound: undefined;
+  Home: undefined;
+  TelaSecundaria: undefined;
+  Configuracoes: undefined;
+  ConfigComponent: undefined;
+};
+
+export type RootTabParamList = {
+  TabOne: undefined;
+  TabTwo: undefined;
+};
+
 
 class App extends React.Component<{}, {}> {
   state: State = {
@@ -42,7 +62,7 @@ class App extends React.Component<{}, {}> {
   }
 
   render() {
-    const Stack = createNativeStackNavigator()
+    const Stack = createNativeStackNavigator<RootStackParamList>();
 
     const { listaComponentesTelas } = this.state
 
@@ -57,13 +77,13 @@ class App extends React.Component<{}, {}> {
             options={{ headerShown: false }}
           />
           <Stack.Screen name="Home" component={TelaPrincipal} />
-          <Stack.Screen name="TelaSecundaria" component={TelaSecundaria} />
+          {/* <Stack.Screen name="TelaSecundaria" component={TelaSecundaria} /> */}
           <Stack.Screen name="Configuracoes" component={Configuracoes} />
-          <Stack.Screen
+          {/* <Stack.Screen
             name="ConfigComponent"
             component={ConfigComponent}
             options={{ headerShown: false }}
-          />
+          /> */}
         </Stack.Navigator>
       </NavigationContainer>
     )
